@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10 000時間</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <main>
-        <div id="time"></div>
-        <div id="pronounciation"></div>
-        <button id="button">Show pronounciation</button>
+<body class="h-screen">
+    <main class="h-full flex flex-col justify-center items-center content-center">
+        <div id="time" class="h-12 text-3xl font-mono"></div>
+        <div id="pronounciation" class="h-12 text-lg"></div>
+        <button id="button" class="text-white bg-green-500 hover:bg-green-400 p-4 rounded-lg border-b-4">Show pronounciation</button>
     </main>
     <script type="module" src="main.js"></script>
 </body>
