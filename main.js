@@ -70,7 +70,8 @@ function getTimeInJapanese(hour, min) {
 
     return `${prefix}${hours[hourByTwelwe]}時${minuteString}`;
 }
-const displayText = document.getElementById('text');
+const timeText = document.getElementById('time');
+const pronounciationText = document.getElementById('pronounciation');
 const button = document.getElementById('button');
 
 const hour = getRandom(0, 23);
@@ -78,8 +79,8 @@ const min = getRandom(0, 59);
 const hourText = `${hour}`.padStart(2, '0');
 const minText = `${min}`.padStart(2, '0');
 const time = `${hourText}:${minText}`;
-displayText.textContent = time;
+timeText.textContent = time;
 
 button.addEventListener('click', () => {
-    displayText.textContent = getTimeInJapanese(hour, min);
+    pronounciationText.textContent = getTimeInJapanese(hour, min);
 });
