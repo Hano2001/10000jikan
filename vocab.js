@@ -24,6 +24,7 @@ const minutes = [
     'ごふん',
     'ろっぷん',
     'ななふん',
+    // TODO: figure out how to handle this case
     'はっぷん/はちふん',
     'きゅうふん',
     'じゅっぷん'
