@@ -13,7 +13,6 @@ const hours = [
     'じゅういち',
     'じゅうに'
 ];
-
 const minutes = [
     '',
     'いっぷん',
@@ -29,7 +28,6 @@ const minutes = [
 ];
 const tens = ['', 'じゅう', 'にじゅう', 'さんじゅう', 'よんじゅう', 'ごじゅう'];
 
-const half = 'はん';
 const am = 'ごぜん';
 const pm = 'ごご';
 
@@ -37,10 +35,25 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function getMinutesString(min) {
+    if (!min) {
+        return '';
+    } else if (min === 30) {
+        return 'はん';
+    } else if (min < 10) {
+        return minutes[min];
+    } else {
+        const [minTen, minOne] = `${min}`.split('');
+        return `${tens[minTen]}${minutes[minOne]}`;
+    }
+}
+
 function getTimeInJapanese(hour, min) {
     const prefix = hour < 12 ? am : pm;
     const hourByTwelwe = hour > 12 ? hour - 12 : hour;
-    // TODO: handling of 半
-    const [minTen, minOne] = `${min}`.split('');
-    return `${prefix}${hours[hourByTwelwe]}時${tens[minTen]}${minutes[minOne]}`;
+    const minuteString = getMinutesString(min);
+
+    return `${prefix}${hours[hourByTwelwe]}時${minuteString}`;
 }
+
+console.log(getTimeInJapanese(0, 45));
