@@ -26,8 +26,21 @@ const minutes = [
     'きゅうふん',
     'じゅっぷん'
 ];
-const tens = ['', 'じゅう', 'にじゅう', 'さんじゅう', 'よんじゅう', 'ごじゅう'];
-
+const tenPrefixes = [
+    '',
+    'じゅう',
+    'にじゅう',
+    'さんじゅう',
+    'よんじゅう',
+    'ごじゅう'
+];
+const evenTens = [
+    'じゅっぷん',
+    'にじゅっぷん',
+    'さんじゅっぷん',
+    'よんじゅっぷん',
+    'ごじゅっぷん'
+];
 const am = 'ごぜん';
 const pm = 'ごご';
 
@@ -42,9 +55,11 @@ function getMinutesString(min) {
         return 'はん';
     } else if (min < 10) {
         return minutes[min];
+    } else if (!(min % 10)) {
+        return evenTens[min / 10 - 1];
     } else {
         const [minTen, minOne] = `${min}`.split('');
-        return `${tens[minTen]}${minutes[minOne]}`;
+        return `${tenPrefixes[minTen]}${minutes[minOne]}`;
     }
 }
 
